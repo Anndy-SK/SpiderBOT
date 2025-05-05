@@ -30,8 +30,8 @@ ledOffButton.addEventListener("click", () => {
   fetch("/led-off", { method: "POST" }).then(() => updateStatus());
 });
 
-updateStatus();
-updateButtonStatus();
+// updateStatus();
+// updateButtonStatus();
 
 // Periodically update the button state
 setInterval(() => {
