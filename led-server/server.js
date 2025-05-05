@@ -59,6 +59,7 @@ app.get("/button-status", (req, res) => {
 // ochrana pri kill ctrl+c
 process.on("SIGINT", () => {
   led.unexport();
+  button.unexport();
   process.exit();
 });
 
