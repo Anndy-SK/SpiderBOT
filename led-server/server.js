@@ -3,7 +3,7 @@ const { Gpio } = require("onoff");
 
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const led = new Gpio(17, "out");
 
 // Setting CORS for frontend
