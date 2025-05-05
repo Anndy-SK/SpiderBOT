@@ -25,6 +25,12 @@ app.post("/led-off", (req, res) => {
   res.send({ status: "LED is OFF" });
 });
 
+app.get("/led-status", (req, res) => {
+  const ledState = led.readSync();
+  const status = ledState === 1 ? "ON" : "OFF";
+  res.json({ status: status });
+});
+
 // ochrana pri kill ctrl+c
 process.on("SIGINT", () => {
   led.unexport();

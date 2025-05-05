@@ -1,4 +1,4 @@
-const { response } = require("express");
+// const { response } = require("express");
 
 // Connect buttons
 const ledOnButton = document.getElementById("led-on");
@@ -7,7 +7,7 @@ const statusText = document.getElementById("status");
 
 // Setting state LED
 function updateStatus() {
-  fetch("/led/status")
+  fetch("/led-status")
     .then((response) => response.json())
     .then((data) => {
       statusText.textContent = `State: ${data.status}`;
@@ -16,9 +16,9 @@ function updateStatus() {
 
 // Event listeners for buttons
 ledOnButton.addEventListener("click", () => {
-  fetch("/led/on", { method: "POST" }).then(() => updateStatus());
+  fetch("/led-on", { method: "POST" }).then(() => updateStatus());
 });
 
 ledOffButton.addEventListener("click", () => {
-  fetch("/led/off", { method: "POST" }).then(() => updateStatus());
+  fetch("/led-off", { method: "POST" }).then(() => updateStatus());
 });
