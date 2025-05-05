@@ -1,0 +1,26 @@
+{
+  "name": "led-server",
+  "version": "1.0.0",
+  "description": "Working with GPIO and GPIO handling",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anndy-SK/ChatGPT_JavaScript.git"
+  },
+  "keywords": [
+    "RaspberryPIzero",
+    "GPIOhandling"
+  ],
+  "author": "Ing. Andrej Klein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anndy-SK/ChatGPT_JavaScript/issues"
+  },
+  "homepage": "https://github.com/Anndy-SK/ChatGPT_JavaScript#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
