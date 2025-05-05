@@ -13,13 +13,13 @@ function updateStatus() {
     });
 }
 
-function updateButtonStatus() {
-  fetch("/button-status")
-    .then((response) => response.json())
-    .then((data) => {
-      buttonStatusText.textContent = `Button: ${data.status}`;
-    });
-}
+// function updateButtonStatus() {
+//   fetch("/button-status")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       buttonStatusText.textContent = `Button: ${data.status}`;
+//     });
+// }
 
 // Event listeners for buttons
 ledOnButton.addEventListener("click", () => {
@@ -30,10 +30,10 @@ ledOffButton.addEventListener("click", () => {
   fetch("/led-off", { method: "POST" }).then(() => updateStatus());
 });
 
-updateStatus();
-updateButtonStatus();
+// updateStatus();
+// updateButtonStatus();
 
 // Periodically update the button state
-setInterval(() => {
-  updateButtonStatus();
-}, 500);
+// setInterval(() => {
+//   updateButtonStatus();
+// }, 500);
