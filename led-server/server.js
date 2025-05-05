@@ -5,7 +5,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 const led = new Gpio(17, "out");
-const button = new Gpio(27, "in", "both");
+// const button = new Gpio(27, "in", "both");
 
 // Setting CORS for frontend
 const cors = require("cors");
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Variable for button state
-let buttonState = "NOT PRESSED";
+// let buttonState = "NOT PRESSED";
 
 // Monitor the button state
 // button.watch((err, value) => {
