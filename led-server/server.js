@@ -19,14 +19,14 @@ app.use(express.static("public"));
 let buttonState = "NOT PRESSED";
 
 // Monitor the button state
-// button.watch((err, value) => {
-//   if (err) {
-//     console.error("Error watching the button:", err);
-//     return;
-//   }
+button.watch((err, value) => {
+  if (err) {
+    console.error("Error watching the button:", err);
+    return;
+  }
 
-//   buttonState = value === 1 ? "PRESSED" : "NOT PRESSED"; // 1 = pressed, 0 = not pressed
-// });
+  buttonState = value === 1 ? "PRESSED" : "NOT PRESSED"; // 1 = pressed, 0 = not pressed
+});
 
 // Endpoints for handling with LEDs
 app.post("/led-on", (req, res) => {
