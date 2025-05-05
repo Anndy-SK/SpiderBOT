@@ -2,7 +2,6 @@
 const ledOnButton = document.getElementById("led-on");
 const ledOffButton = document.getElementById("led-off");
 const statusText = document.getElementById("status");
-const buttonStatusText = document.getElementById("button-status");
 
 // Setting state LED
 function updateStatus() {
@@ -17,6 +16,7 @@ function updateButtonStatus() {
   fetch("/button-status")
     .then((response) => response.json())
     .then((data) => {
+      const buttonStatusText = document.getElementById("button-status");
       buttonStatusText.textContent = `Button: ${data.status}`;
     });
 }
