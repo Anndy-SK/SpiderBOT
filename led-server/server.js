@@ -5,6 +5,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 const led = new Gpio(17, "out");
+const button = new Gpio(27, "in", "both");
 
 // Setting CORS for frontend
 const cors = require("cors");
@@ -13,6 +14,19 @@ app.use(express.json());
 
 // Server static files (HTML, CSS, JS)
 app.use(express.static("public"));
+
+// Variable for button state
+let buttonState = "NOT PRESSED";
+
+// Monitor the button state
+// button.watch((err, value) => {
+//   if (err) {
+//     console.error("Error watching the button:", err);
+//     return;
+//   }
+
+//   buttonState = value === 1 ? "PRESSED" : "NOT PRESSED"; // 1 = pressed, 0 = not pressed
+// });
 
 // Endpoints for handling with LEDs
 app.post("/led-on", (req, res) => {
@@ -29,6 +43,12 @@ app.get("/led-status", (req, res) => {
   const ledState = led.readSync();
   const status = ledState === 1 ? "ON" : "OFF";
   res.json({ status: status });
+});
+
+// Endpoints for handling with BUTTON:
+app.get("/button-status", (req, res) => {
+  const value = button.readSync();
+  res.send({ status: value === 1 ? "Pressed" : "Released" });
 });
 
 // ochrana pri kill ctrl+c
