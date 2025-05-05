@@ -2,7 +2,7 @@
 const ledOnButton = document.getElementById("led-on");
 const ledOffButton = document.getElementById("led-off");
 const statusText = document.getElementById("status");
-// const buttonStatusText = document.getElementById("button-status");
+const buttonStatusText = document.getElementById("button-status");
 
 // Setting state LED
 function updateStatus() {
@@ -13,13 +13,13 @@ function updateStatus() {
     });
 }
 
-// function updateButtonStatus() {
-//   fetch("/button-status")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       buttonStatusText.textContent = `Button: ${data.status}`;
-//     });
-// }
+function updateButtonStatus() {
+  fetch("/button-status")
+    .then((response) => response.json())
+    .then((data) => {
+      buttonStatusText.textContent = `Button: ${data.status}`;
+    });
+}
 
 // Event listeners for buttons
 ledOnButton.addEventListener("click", () => {
@@ -34,6 +34,7 @@ ledOffButton.addEventListener("click", () => {
 // updateButtonStatus();
 
 // Periodically update the button state
+setInterval(updateButtonStatus, 500);
 // setInterval(() => {
 //   updateButtonStatus();
 // }, 500);
