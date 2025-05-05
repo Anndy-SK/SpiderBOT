@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 // Connect buttons
 const ledOnButton = document.getElementById("led-on");
 const ledOffButton = document.getElementById("led-off");
