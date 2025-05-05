@@ -15,12 +15,12 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Endpoints for handling with LEDs
-app.get("/led/on", (req, res) => {
+app.post("/led-on", (req, res) => {
   led.writeSync(1);
   res.send({ status: "LED is ON" });
 });
 
-app.get("/led/off", (req, res) => {
+app.post("/led-off", (req, res) => {
   led.writeSync(0);
   res.send({ status: "LED is OFF" });
 });
