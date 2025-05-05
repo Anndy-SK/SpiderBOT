@@ -47,8 +47,13 @@ app.get("/led-status", (req, res) => {
 
 // Endpoints for handling with BUTTON:
 app.get("/button-status", (req, res) => {
-  const value = button.readSync();
-  res.send({ status: value === 1 ? "Pressed" : "Released" });
+  try {
+    const value = button.readSync();
+    res.send({ status: value === 1 ? "PRESSED" : "NOT PRESSED" });
+  } catch (err) {
+    console.error("Error reading button state:", err);
+    res.status(500).send({ status: "ERROR", message: err.message });
+  }
 });
 
 // ochrana pri kill ctrl+c
