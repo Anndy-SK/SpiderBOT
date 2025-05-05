@@ -2,7 +2,7 @@
 const ledOnButton = document.getElementById("led-on");
 const ledOffButton = document.getElementById("led-off");
 const statusText = document.getElementById("status");
-const buttonStatusText = document.getElementById("button-status");
+// const buttonStatusText = document.getElementById("button-status");
 
 // Setting state LED
 function updateStatus() {
